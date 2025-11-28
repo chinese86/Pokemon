@@ -8,7 +8,7 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-import { TrainerCard } from '../components/TrainerCard';
+import { TrainerCard } from '../../components/TrainerCard';
 
 // MISMA URL Y API KEY QUE EN index.tsx
 const SUPABASE_URL = 'https://ofdvyylsuksumtqndwzh.supabase.co';
