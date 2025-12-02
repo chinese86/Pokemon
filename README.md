@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+#Jerry Wong Cal
+#PGL
+# Aplicación Pokémon con React Native + Expo y Supabase
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Índice
+- [Introducción](#introducción)
+- [Desarrollo](#desarrollo)
+- [Componentes](#componentes)
+- [Pestañas](#pestañas)
+- [Pokédex](#pokédex)
+- [Entrenadores](#entrenadores)
+- [Equipos](#equipos)
+- [Cámara](#cámara)
+- [Mapa](#mapa)
+- [Conclusión](#conclusión)
+- [GitHub](#github)
 
-## Get started
+## Introducción
+Aplicación sobre equipos Pokémon cuya función es gestionar Pokémon, entrenadores y equipos de forma sencilla desde el móvil. Desarrollada usando React Native + Expo y Supabase, en la que creamos tres tablas: Pokémon, Entrenadores y Equipos, y accedemos a estas tablas utilizando su API REST, lo que permite implementar operaciones completas de creación, lectura, actualización y borrado (CRUD) sobre varias tablas relacionadas.
 
-1. Install dependencies
+## Desarrollo
+La aplicación utiliza Expo para el desarrollo móvil y Supabase como backend, permitiendo el acceso a datos mediante su API REST. Cada componente se conecta a la API para realizar operaciones CRUD y mostrar la información de forma dinámica.
 
-   ```bash
-   npm install
-   ```
+## Componentes
 
-2. Start the app
+### Pokédex (index.tsx)
+- Lista de Pokémon + formulario.
+- Métodos: GET, POST, PATCH, DELETE en `/rest/v1/Pokemon`.
 
-   ```bash
-   npx expo start
-   ```
+### Entrenadores (entrenadores.tsx)
+- Lista + CRUD de entrenadores.
 
-In the output, you'll find options to open the app in a
+### Equipos (equipos.tsx)
+- Usa tabla intermedia Equipos para relacionar Entrenadores ↔ Pokémon (muchos-a-muchos).
+- Endpoints: GET de Entrenadores, Pokémon, Equipos; POST y DELETE en Equipos.
+- Lista “Pokémon del entrenador seleccionado” calculada con esos datos.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Cámara (camara.tsx)
+- Usa `expo-image-picker` para elegir imagen de galería o cámara, muestra la URI y la imagen.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Mapa (mapa.tsx)
+- Usa `react-native-maps` para mostrar un mapa centrado en una ciudad con un marcador.
 
-## Get a fresh project
+## Pestañas
 
-When you're ready, run:
+### Pokédex
+Muestra la lista de Pokémon y permite gestionarlos.
 
-```bash
-npm run reset-project
-```
+### Entrenadores
+Muestra la lista de entrenadores y permite realizar operaciones CRUD.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Equipos
+Muestra los equipos y permite gestionar la relación entre entrenadores y Pokémon.
 
-## Learn more
+### Cámara
+Permite seleccionar o tomar fotos desde la cámara del dispositivo.
 
-To learn more about developing your project with Expo, look at the following resources:
+### Mapa
+Muestra un mapa con un marcador en una ubicación predeterminada.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Ejemplo de código
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Entrenadores (get inicial)
